@@ -31,15 +31,16 @@ def menu():
 @app.route('/lotto')
 def lotto():
     winner=[]
+    result = []
     url="https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=873"
     response = requests.get(url)
     res_dict=response.json()
     
     for i in range(6):
-        result.append(res_dict[f'drwtNo{i+1}'])
+        winner.append(res_dict[f'drwtNo{i+1}'])
 
-    
-    result=random.sample(range(1,46),6)
+    result = random.sample(range(1,47),6)
+
 
     cnt = len(set(winner)&set(result)) #교집합
 
