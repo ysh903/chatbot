@@ -4,7 +4,7 @@ python으로 telegram message 보내기
 import requests
 
 # getUpdates를 통해 chat_id 사용
-url2='https://api.telegram.org/bot945608188:AAE2xA41KIjgWn9JvScfJq0DoN8AcwgBhdQ/getUpdates'
+url2='https://api.telegram.org/bot{token}/getUpdates'
 response = requests.get(url2)
 res_dict = response.json()
 #print(res_dict['result']['message']['chat']['id'])
@@ -18,7 +18,7 @@ base_url='https://api.telegram.org/bot'
 method='/sendMessage?chat_id='
 message='&text=python!'
 url = base_url+token+method+chat_id+message
-#requests.get('https://api.telegram.org/bot945608188:AAE2xA41KIjgWn9JvScfJq0DoN8AcwgBhdQ/sendMessage?chat_id=981497753&text=hi!')
+#requests.get('https://api.telegram.org/bot{token}/sendMessage?chat_id=981497753&text=hi!')
 requests.get(url)
 print(url)
 
